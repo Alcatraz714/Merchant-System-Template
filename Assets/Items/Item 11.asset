@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66639238091beb04ab043a8cc11c51f3, type: 3}
-  m_Name: Item 10
+  m_Name: Item 11
   m_EditorClassIdentifier: 
-  ItemName: Assassin Dagger
-  Type: 1
-  Icon: {fileID: 21300000, guid: 1ff1175d56df9eb4f8cfa0ba429d9254, type: 3}
-  Description: A Silent weapon best used by Thiefs
-  BuyingPrice: 75
-  SellingPrice: 50
-  Weight: 5
-  ItemRarity: 0
+  ItemName: Bandit Armour
+  Type: 0
+  Icon: {fileID: 21300000, guid: 5105fe1d825990746b9a92407ea447ca, type: 3}
+  Description: A bandit's best rags, easy to repair
+  BuyingPrice: 100
+  SellingPrice: 10
+  Weight: 10
+  ItemRarity: 1
