@@ -45,7 +45,6 @@ public class UIManager : MonoBehaviour
         GatherResourcesButton.interactable = enabled;
         OverweightPopup.SetActive(!enabled);
 
-        // If OverweightPopup is enabled, start coroutine to disable it after 1 second
         if (!enabled)
         {
             StartCoroutine(HideOverweightPopupAfterDelay());

@@ -8,7 +8,7 @@ public class SoundPlayer : MonoBehaviour
     [SerializeField] private AudioClip buySound;
     [SerializeField] private AudioClip sellSound;
     [SerializeField] private AudioClip gatherSound;
-    [SerializeField] private AudioClip errorSound; // For errors like "Not enough gold"
+    [SerializeField] private AudioClip errorSound;
 
     private void Awake()
     {
