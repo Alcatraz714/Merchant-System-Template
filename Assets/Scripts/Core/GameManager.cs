@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int PlayerCurrency = 100;
     public float MaxInventoryWeight = 50f;
-    public float CurrentWeight = 50f;
+    public float CurrentWeight;
 
     private void Awake()
     {

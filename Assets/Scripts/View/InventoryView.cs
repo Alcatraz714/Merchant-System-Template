@@ -23,6 +23,8 @@ public class InventoryView : MonoBehaviour
         foreach (var item in items)
         {
             GameObject newItem = Instantiate(ItemTemplatePrefab, InventoryGrid);
+            TooltipTrigger tooltip = newItem.GetComponent<TooltipTrigger>();
+            tooltip.itemData = item;
             newItem.GetComponentInChildren<TMP_Text>().text = item.ItemName;
             newItem.GetComponentInChildren<Image>().sprite = item.Icon;
 

@@ -21,6 +21,8 @@ public class ShopView : MonoBehaviour
         foreach (var item in items)
         {
             GameObject newItem = Instantiate(ItemTemplatePrefab, ShopGrid);
+            TooltipTrigger tooltip = newItem.GetComponent<TooltipTrigger>();
+            tooltip.itemData = item;
             newItem.GetComponentInChildren<TMP_Text>().text = item.ItemName;
             newItem.GetComponentInChildren<Image>().sprite = item.Icon;
 
