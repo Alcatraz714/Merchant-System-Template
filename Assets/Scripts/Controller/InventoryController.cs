@@ -18,6 +18,7 @@ public class InventoryController : MonoBehaviour
     {
         inventoryModel.AddItem(item);
         UpdateInventoryUI();
+        SoundPlayer.Instance.PlaySound(SoundType.Buy);
     }
 
     public void TrySellItem(ItemData item)

@@ -12,12 +12,14 @@ public class InventoryModel:MonoBehaviour
     {
         Items.Add(item);
         GameEvents.OnInventoryUpdated?.Invoke();
+        SoundPlayer.Instance.PlaySound(SoundType.Buy);
     }
 
     public void RemoveItem(ItemData item)
     {
         Items.Remove(item);
         GameEvents.OnInventoryUpdated?.Invoke();
+        SoundPlayer.Instance.PlaySound(SoundType.Sell);
     }
 
     private float CalculateWeight()

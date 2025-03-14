@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class GatheringManager: MonoBehaviour
+public class GatheringManager : MonoBehaviour
 {
-    private InventoryModel inventoryModel;
-    private List<ItemData> allItems;
+    [SerializeField] private InventoryModel inventoryModel;
+    [SerializeField] private List<ItemData> allItems;
 
-    public GatheringManager(InventoryModel inventory, List<ItemData> items)
+    public void Initialize(InventoryModel inventory, List<ItemData> items)
     {
         inventoryModel = inventory;
         allItems = items;
@@ -14,16 +14,28 @@ public class GatheringManager: MonoBehaviour
 
     public void GatherResources()
     {
-        /*if (inventoryModel.CurrentWeight >= GameManager.Instance.MaxInventoryWeight)
+        if (inventoryModel == null)
+        {
+            Debug.LogError("GatheringManager: inventoryModel is NULL! Did you forget to call Initialize()?");
+            return;
+        }
+
+        if (allItems == null || allItems.Count == 0)
+        {
+            Debug.LogError("GatheringManager: allItems is NULL or EMPTY! Assign items in GameManager.");
+            return;
+        }
+
+        if (inventoryModel.CurrentWeight >= GameManager.Instance.MaxInventoryWeight)
         {
             GameEvents.OnGatheringStateChanged?.Invoke(false);
+            SoundPlayer.Instance.PlaySound(SoundType.Error);
             return;
-        }*/
-
-        GameEvents.OnGatheringStateChanged?.Invoke(false);
+        }
 
         ItemData randomItem = allItems[Random.Range(0, allItems.Count)];
         inventoryModel.AddItem(randomItem);
         GameEvents.OnGatheringStateChanged?.Invoke(true);
+        SoundPlayer.Instance.PlaySound(SoundType.Gather);
     }
 }

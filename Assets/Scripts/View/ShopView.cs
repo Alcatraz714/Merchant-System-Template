@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
+using TMPro;
 
 public class ShopView : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class ShopView : MonoBehaviour
         foreach (var item in items)
         {
             GameObject newItem = Instantiate(ItemTemplatePrefab, ShopGrid);
-            //newItem.GetComponentInChildren<Text>().text = item.ItemName;
+            newItem.GetComponentInChildren<TMP_Text>().text = item.ItemName;
             newItem.GetComponentInChildren<Image>().sprite = item.Icon;
 
             newItem.GetComponent<Button>().onClick.AddListener(() => OnItemSelected?.Invoke(item));
