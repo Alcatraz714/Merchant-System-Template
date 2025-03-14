@@ -48,6 +48,9 @@
      <Compile Include="Assets\Scripts\Controller\InventoryController.cs" />
      <Compile Include="Assets\Scripts\View\InventoryView.cs" />
      <Compile Include="Assets\Scripts\Core\GameEvent.cs" />
+     <Compile Include="Assets\Scripts\SoundPlayer.cs" />
+     <Compile Include="Assets\Scripts\TooltipManager.cs" />
+     <Compile Include="Assets\Scripts\TooltipTrigger.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

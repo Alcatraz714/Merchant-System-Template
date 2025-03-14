@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int PlayerCurrency = 100;
     public float MaxInventoryWeight = 50f;
+    public float CurrentWeight;
 
     private void Awake()
     {
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     {
         GameEvents.OnItemBought += UpdateCurrency;
         GameEvents.OnItemSold += UpdateCurrency;
+        GameEvents.OnItemBought += UpdateWeight;
+        GameEvents.OnItemSold += UpdateWeight;
     }
 
     private void UpdateCurrency(ItemData item)
@@ -30,9 +33,16 @@ public class GameManager : MonoBehaviour
         GameEvents.OnCurrencyChanged?.Invoke(PlayerCurrency);
     }
 
+    private void UpdateWeight(ItemData item)
+    {
+        GameEvents.OnWeightChanged?.Invoke(CurrentWeight);
+    }
+
     private void OnDestroy()
     {
         GameEvents.OnItemBought -= UpdateCurrency;
         GameEvents.OnItemSold -= UpdateCurrency;
+        GameEvents.OnItemBought -= UpdateWeight;
+        GameEvents.OnItemSold -= UpdateWeight;
     }
 }
